@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:krok_app/generated/l10n.dart';
+import 'package:krok_app/resources/resources.dart';
 import 'package:krok_app/routes/router.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -15,10 +18,14 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      theme: AppTheme.lightTheme(context),
       routerConfig: _appRouter.config(),
     );
   }
