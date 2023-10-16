@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Enter your phone number"),
         "krokapp": MessageLookupByLibrary.simpleMessage("KrOkApp"),
-        "start": MessageLookupByLibrary.simpleMessage("Start")
+        "start": MessageLookupByLibrary.simpleMessage("Start"),
+        "totalStepsToday":
+            MessageLookupByLibrary.simpleMessage("Total steps today")
       };
 }

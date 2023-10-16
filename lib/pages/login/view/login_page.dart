@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:krok_app/generated/l10n.dart';
 import 'package:krok_app/pages/pages.dart';
 import 'package:krok_app/routes/router.dart';
+import 'package:krok_app/widgets/widgets.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {
@@ -16,26 +16,11 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _nameController = TextEditingController();
   final _phoneController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    _initSettings();
-  }
-  
+ 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: AppBar(
-        backgroundColor: theme.colorScheme.background,
-        centerTitle: true,
-        title: Text(
-          S.of(context).krokapp,
-        ),
-      ),
-      body: Center(
+    return CustomBase(
+        onPressed: () {  },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
@@ -45,8 +30,8 @@ class _LoginPageState extends State<LoginPage> {
               const Spacer(flex: 4,),
               TextFormField(
                 controller: _nameController,
-                // validator: (val) =>
-                //     val!.isEmpty ? S.of(context).enterYourName : null,
+                validator: (val) =>
+                    val!.isEmpty ? S.of(context).enterYourName : null,
                 autocorrect: false,
                 decoration: InputDecoration(
                   hintText: S.of(context).enterYourName,
@@ -55,8 +40,8 @@ class _LoginPageState extends State<LoginPage> {
               const Spacer(),
               TextFormField(
                 controller: _phoneController,
-                // validator: (val) =>
-                //     val!.isEmpty ? S.of(context).enterYourName : null,
+                validator: (val) =>
+                    val!.isEmpty ? S.of(context).enterYourPhoneNumber : null,
                 autocorrect: false,
                 decoration: InputDecoration(
                   hintText: S.of(context).enterYourPhoneNumber,
@@ -70,15 +55,6 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
         ),
-      ),
     );
   }
-}
-
-
-void _initSettings() {
-  PhoneInputFormatter.replacePhoneMask(
-    countryCode: 'UA',
-    newMask: '+000 (00) 000 00 00',
-  );
 }

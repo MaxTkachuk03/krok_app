@@ -13,6 +13,10 @@ class AppTheme {
       dividerTheme: DividerThemeData(
         color: AppColors.kGreyColor.withOpacity(0.4),
       ),
+      textTheme: const TextTheme(
+          bodyMedium: TextStyle(
+        color: AppColors.kScaffoldBackgroundColor,
+      )),
       iconTheme: const IconThemeData(
         color: AppColors.kScaffoldBackgroundColor,
       ),
@@ -87,6 +91,8 @@ class AppTheme {
       iconTheme: const IconThemeData(
         color: AppColors.kBlackColor,
       ),
+      textTheme:
+          const TextTheme(bodyMedium: TextStyle(color: AppColors.kBlackColor)),
       listTileTheme: const ListTileThemeData(
         textColor: AppColors.kScaffoldBackgroundColor,
       ),

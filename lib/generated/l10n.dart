@@ -89,6 +89,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Total steps today`
+  String get totalStepsToday {
+    return Intl.message(
+      'Total steps today',
+      name: 'totalStepsToday',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -2,5 +2,6 @@
   "start": "Start",
   "krokapp": "KrOkApp",
   "enterYourName": "Enter your name",
-  "enterYourPhoneNumber": "Enter your phone number"
+  "enterYourPhoneNumber": "Enter your phone number",
+  "totalStepsToday": "Total steps today"
 }
