@@ -10,6 +10,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  
   Stream<StepCount> stepCountStream = Pedometer.stepCountStream;
   Stream<PedestrianStatus> pedestrianStatusStream =
       Pedometer.pedestrianStatusStream;

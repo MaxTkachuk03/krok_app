@@ -16,45 +16,51 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _nameController = TextEditingController();
   final _phoneController = TextEditingController();
- 
+
   @override
   Widget build(BuildContext context) {
     return CustomBase(
-        onPressed: () {  },
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Spacer(flex: 4,),
-              TextFormField(
-                controller: _nameController,
-                validator: (val) =>
-                    val!.isEmpty ? S.of(context).enterYourName : null,
-                autocorrect: false,
-                decoration: InputDecoration(
-                  hintText: S.of(context).enterYourName,
-                ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Spacer(
+              flex: 4,
+            ),
+            TextFormField(
+              controller: _nameController,
+              validator: (val) =>
+                  val!.isEmpty ? S.of(context).enterYourName : null,
+              autocorrect: false,
+              decoration: InputDecoration(
+                hintText: S.of(context).enterYourName,
               ),
-              const Spacer(),
-              TextFormField(
-                controller: _phoneController,
-                validator: (val) =>
-                    val!.isEmpty ? S.of(context).enterYourPhoneNumber : null,
-                autocorrect: false,
-                decoration: InputDecoration(
-                  hintText: S.of(context).enterYourPhoneNumber,
-                ),
+            ),
+            const Spacer(),
+            TextFormField(
+              controller: _phoneController,
+              validator: (val) =>
+                  val!.isEmpty ? S.of(context).enterYourPhoneNumber : null,
+              autocorrect: false,
+              decoration: InputDecoration(
+                hintText: S.of(context).enterYourPhoneNumber,
               ),
-              const Spacer(),
-              EnterButton(onPressed: () {
+              keyboardType: TextInputType.phone,
+            ),
+            const Spacer(),
+            EnterButton(
+              onPressed: () {
                 AutoRouter.of(context).push(const HomeRoute());
-              }),
-              const Spacer(flex: 4,),
-            ],
-          ),
+              },
+            ),
+            const Spacer(
+              flex: 4,
+            ),
+          ],
         ),
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:pedometer/pedometer.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class StepCounter {
   StepCounter({
@@ -9,6 +10,15 @@ class StepCounter {
   Stream<StepCount> stepCountStream;
   Stream<PedestrianStatus> pedestrianStatusStream;
   String status = '?', steps = '?';
+
+  Future<void> getPermission() async {
+    const permission = Permission.activityRecognition;
+    if (await permission.isDenied) {
+      permission.request();
+    }
+
+    permission.request();
+  }
 
   String formatDate(DateTime d) {
     return d.toString().substring(0, 19);
